@@ -373,7 +373,7 @@ void fnPrintHelp(char *cmd)
 	fprintf(stdout,"\t-a [attributes]\t\tfilename of the attributes file (see samplefile)\n");
 	fprintf(stdout,"\t-o [ok state]\t\tauth reply code which will return ok state (default: 2 = accepted)\n");
     fprintf(stdout,"\t-e [error code]\t\tplugin error-code in case reply code differs (default: 2 = critical)\n");
-	fprintf(stdout,"\t-m [replymsg]\t\texpected replymsg (type=18) (default: \"\")\n");
+	fprintf(stdout,"\t-m [replymsg]\t\texpected replymsg (type=18) (default: \"\", not checking)\n");
 	fprintf(stdout,"\t-h\t\t\tthis menu\n");
 
 	exit(3);
@@ -968,7 +968,7 @@ void fnSendAndReceivePacket(RADIUS_HEADER *radhead)
           fprintf(stdout,"CRITICAL: ");
         } 
 	} else {
-		if(strncmp(global.replymsg,replymsg,strlen(global.replymsg))==0 && strlen(global.replymsg) == strlen(replymsg)) {
+		if ((!*global.replymsg) || (strncmp(global.replymsg,replymsg,strlen(global.replymsg))==0 && strlen(global.replymsg) == strlen(replymsg))) {
 			fprintf(stdout,"OK: ");
 			rc=0;
 		} else {
