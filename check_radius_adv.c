@@ -92,7 +92,7 @@ typedef struct vendor_nvalue {					/* all written		*/
 } VENDOR_NATTR;
 
 typedef struct vendor {
-			long id;			/*  8 octets */
+			int32_t id;			/*  4 octets */
 			unsigned char type; 	/* 1 octet */
 			unsigned char length; /*1 octet */
 			unsigned char value[254];	/* 254 octets		*/
@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 void fnInitialize(RADIUS_HEADER *radhead)
 {
 	memset(&global,0,sizeof(GLOBAL));
-	memset(radhead,0,sizeof(radhead));
+	memset(radhead,0,sizeof(RADIUS_HEADER));
 
 	radhead->rad_attr = NULL;
 
@@ -521,7 +521,7 @@ void fnGeneratePacket(RADIUS_HEADER *radhead)
         				}
 			        regfree(&regex);					
 				}
-	 			memset(buffer,MAX_BUFFER,0);
+				memset(buffer,0,MAX_BUFFER);
 			}
 			fclose(fp);
 		/* opened faile => file does not exist => abort */
