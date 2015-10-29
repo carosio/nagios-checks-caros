@@ -1,0 +1,23 @@
+#Attrib #Vendor #Type   # #Value
+
+#Addresses
+4       0       0       A 192.168.20.1
+8       0       0       A 192.168.30.2
+
+#String
+44      0       0       S 00DEC3D4
+
+#Integer
+61      0       0       I 15
+
+#String
+26      14122   2       S Sample String
+
+# Integers
+26      3414    41      I 1
+26      3414    42      I 2
+26      3414    43      I 0
+
+# Set Event-Timestamp to actual time
+55      0       0       T
+

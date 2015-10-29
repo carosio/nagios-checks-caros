@@ -1,0 +1,30 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:537: checking whether make sets ${MAKE}
+configure:566: checking for gcc
+configure:643: checking whether the C compiler (gcc  ) works
+configure:657: gcc -o conftest    conftest.c  1>&5
+configure:677: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:682: checking whether we are using GNU C
+configure:691: gcc -E conftest.c
+configure:706: checking whether gcc accepts -g
+configure:736: checking this systems operating system
+configure:762: checking for socket in -lsocket
+configure:781: gcc -o conftest -g -O2   conftest.c -lsocket   1>&5
+/usr/bin/ld: cannot find -lsocket
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 770 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char socket();
+
+int main() {
+socket()
+; return 0; }
+configure:802: checking for inet_addr in -lnsl
+configure:821: gcc -o conftest -g -O2   conftest.c -lnsl   1>&5
+configure:843: checking if to compile in debug mode
